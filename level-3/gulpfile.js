@@ -4,7 +4,7 @@ var browserSync = require('browser-sync').create();
 var log = require('fancy-log');
 
 var sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var postcss = require('gulp-postcss');
@@ -13,10 +13,10 @@ var cssnano = require('cssnano');
 var replace = require('gulp-replace');
 
 // Make sure that v10.16.0 is used
-if (process.version !== 'v10.16.0') {
-    log.error('Wrong version of node! v10.16.0 is needed, current version: ' + process.version);
-    process.exit();
-}
+// if (process.version !== 'v10.16.0') {
+//     log.error('Wrong version of node! v10.16.0 is needed, current version: ' + process.version);
+//     process.exit();
+// }
 
 // Start PHP local server (TWIG)
 gulp.task('php', function () {
